@@ -9,6 +9,6 @@ public class QPP extends Deductions{
 
     @Override
     public double calculateTax() {
-        return 0.108* employee.getEmployeeGrossSalary();
+        return 0.108* employee.calculateGrossSalary();
     }
 }

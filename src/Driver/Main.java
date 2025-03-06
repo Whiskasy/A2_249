@@ -1,13 +1,4 @@
 package Driver;
-import Deductions.Deductions;
-import Deductions.EmploymentInsurance;
-import Deductions.FederalTax;
-import Deductions.ProvincialTax;
-import Deductions.QPIP;
-import Deductions.QPP;
-import Employee.Employee;
-import java.util.Scanner;
-
 //-----------------------------------------------------------
 // Assignment 2
 // Written by: Gabriel Lippé (40316342) and Noah Beauchemin (40313066)
@@ -19,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome to the payroll file processor program by Gabriel Lippé and Noah Beauchemin");
+        System.out.println("Welcome to the payroll file processor program by Gabriel Lippé and Noah Beauchemin.");
 
 
 
