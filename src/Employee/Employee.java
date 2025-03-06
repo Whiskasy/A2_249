@@ -1,3 +1,5 @@
+package Employee;
+
 public class Employee {
 
     private long employeeNumber;
@@ -30,7 +32,7 @@ public class Employee {
         this.employeeNumber = employeeNumber;
     }
 
-    public double GetEmployeeGrossSalary(){
+    public double getEmployeeGrossSalary(){
 
         return hoursWorked*hourlyWage*52;
     }
