@@ -10,7 +10,7 @@ public class Employee {
     private double hoursWorked;
     private double hourlyWage;
     private double grossSalary;
-    private Employee[] employee;
+//    private Employee[] employee;
 
     public Employee() {
     }
@@ -68,7 +68,7 @@ public class Employee {
     }
 
     public double calculateGrossSalary() {
-        return hoursWorked * hourlyWage * 52;
+        return (hoursWorked * hourlyWage * 52);
     }
     public double getGrossSalary(){
        return grossSalary;
