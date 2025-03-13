@@ -5,8 +5,6 @@ import java.util.Scanner;
 import Exceptions.MinimumWageException;
 import Employee.Employee;
 
-//import java.io.printWriter;
-
 //-----------------------------------------------------------
 // Assignment 2
 // Written by: Gabriel Lippé (40316342) and Noah Beauchemin (40313066)
@@ -19,12 +17,12 @@ public class Driver {
     private static Employee[] employees = new Employee[100];
     private static int employeeCount = 0;
 
-    public class Main {
+
         public static void main(String[] args) {
             System.out.println("Welcome to the payroll file processor program by Gabriel Lippé and Noah Beauchemin.");
 
-            readPayrollFile("payroll.txt");
-            writeReport("report.txt");
+            readPayrollFile("src/Driver/payroll.txt");
+            writeReport("payrollReport.txt");
         }
 
         private static void readPayrollFile(String fileName) {
@@ -49,7 +47,7 @@ public class Driver {
                     employees[employeeCount++] = emp;
                 }
             } catch (MinimumWageException e) {
-                System.out.println("Hourly wage must be greater than 15.75");
+
             } catch (FileNotFoundException e) {
                 System.out.println("File not found");
             } catch (IOException e) {
@@ -59,8 +57,10 @@ public class Driver {
 
         private static void writeReport(String fileName) {
             try{ BufferedWriter reportWriter = new BufferedWriter(new FileWriter(fileName));
-                reportWriter.write("Emp #   First Name   Last Name   Gross Salary   Deductions   Net Salary\n");
-                reportWriter.write("--------------------------------------------------------------\n");
+                reportWriter.write("iDroid solutions\n"
+                                    + "-----------------------\n");
+                reportWriter.write("Employee Number   First Name   Last Name   Gross Salary   Deductions   Net Salary\n");
+                reportWriter.write("---------------------------------------------------------------------------------\n");
 
                 for (int i=0; i<employeeCount; i++){
 
@@ -72,7 +72,7 @@ public class Driver {
 
         }
     }
-}
+
 
 
 
@@ -87,7 +87,6 @@ public class Driver {
                     if (parts.length != 5) {
                         throw new IllegalArgumentException("Invalid number of fields in: " + line);
                     }
-
                     long employeeNumber = Long.parseLong(parts[0]);
                     String firstName = inFile.next();
                     String lastNAme = inFile.next();
@@ -95,17 +94,11 @@ public class Driver {
                     double hoursWorked = inFile.nextDouble();
 
                     Employee employee = new Employee(employeeNumber, firstName, lastNAme, hourlyWage, hoursWorked, );
-
                 }
             }
-
             catch (Exception e) {
-
             }
-
         }
-
-
 
     }
 }

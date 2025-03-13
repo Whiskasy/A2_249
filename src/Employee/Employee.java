@@ -74,4 +74,10 @@ public class Employee {
        return grossSalary;
     }
 
+
+    /*Must See if need to implement
+    public String toString() {
+        return "Employee Number: " + employeeNumber + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nGross salary: " + grossSalary; + "\nDeductions";
+    }
+    */
 }
