@@ -1,7 +1,8 @@
 package Employee;
 
 import Exceptions.MinimumWageException;
-
+import Deductions.*
+        ;
 public class Employee {
 
     private long employeeNumber;
@@ -16,9 +17,7 @@ public class Employee {
     }
 
     public Employee(long employeeNumber, String firstName, String lastName, double hourlyWage, double hoursWorked, double grossSalary) throws MinimumWageException {
-        if (hourlyWage < 15.75){
-            throw new MinimumWageException("Hourly wage must be greater than 15.75");
-        }
+
         this.employeeNumber = employeeNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -74,10 +73,24 @@ public class Employee {
        return grossSalary;
     }
 
+    public double calculateDeductions() {
+        new EmploymentInsurance(this);
+        new FederalTax(this);
+        new ProvincialTax(this);
+        new QPIP(this);
+        new QPP(this);
 
-    /*Must See if need to implement
-    public String toString() {
-        return "Employee Number: " + employeeNumber + "\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nGross salary: " + grossSalary; + "\nDeductions";
+        double totalDeductions=0;
+        totalDeductions += new EmploymentInsurance(this).calculateTax() +
+                        new FederalTax(this).calculateTax()+
+                        new ProvincialTax(this).calculateTax()+
+                        new QPIP(this).calculateTax()+
+                        new QPP(this).calculateTax();
+        return totalDeductions;
+
+
+        }
+    public double calculateNetSalary(){
+        return grossSalary-calculateDeductions();
     }
-    */
 }
