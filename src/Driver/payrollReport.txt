@@ -1,0 +1,11 @@
+                        iDroid Solutions
+                     -----------------------
+Employee Number   First Name   Last Name   Gross Salary   Deductions   Net Salary
+---------------------------------------------------------------------------------
+40316           GABRIEL         LIPPE           42640.00     18258.84   24381.16  
+40313           NOAH            BEAUCHEMIN      34125.00     14827.81   19297.19  
+73343           ALICE           JOHNSON         51480.00     21820.83   29659.17  
+41306           BOB             FARHAN          30420.00     13334.91   17085.09  
+46344           CAROL           WHITE           54600.00     25808.00   28792.00  
+56347           HENRY           CLARK           45630.00     19463.63   26166.37  
+43070           IRENE           LEWIS           49036.00     20836.05   28199.95  

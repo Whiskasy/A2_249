@@ -30,9 +30,12 @@ public class Driver {
             System.out.println("> Opening file payroll... ");
             System.out.println("> Reading file payroll...");
             System.out.println("> Error lines found in file Payroll:");
+            int lineCount=0;
+            int errorLineCount=0;
             try (BufferedReader reader = new BufferedReader(new FileReader(fileName));
                 BufferedWriter errorWriter = new BufferedWriter(new FileWriter("src/Driver/payrollError.txt"))) {
                 String line;
+
                 while ((line = reader.readLine()) != null && employeeCount < 100) {
                     try {
                         String[] parts = line.split(" ");
@@ -60,24 +63,31 @@ public class Driver {
                         System.out.println(line);
                         errorWriter.write("Error: " + line);
                         errorWriter.newLine();
+                        errorLineCount++;
                     }
                     // Write the invalid record to payrollError.txt
                     catch (Exception e) {
                         System.out.println(line);
                         errorWriter.write("Error: " + line);
                         errorWriter.newLine();
+                        errorLineCount++;
                     }
+                    lineCount++;
                 }
             }catch (IOException e){
                 System.out.println("IO exception reading payroll file");
             }
+            System.out.println("> "+ lineCount + " lines read from file payroll");
+            System.out.println("> " + errorLineCount + " lines written to error file");
+            System.out.println("> Calculating deductions");
+            System.out.println("> Writing report file");
         }
 
         //WriteReport method
         private static void writeReport(String fileName) {
             BufferedWriter reportWriter = null;
             try {  reportWriter = new BufferedWriter(new FileWriter(fileName));
-                reportWriter.write("                        iDroid solutions\n"
+                reportWriter.write("                        iDroid Solutions\n"
                                     + "                     -----------------------\n");
                 reportWriter.write("Employee Number   First Name   Last Name   Gross Salary   Deductions   Net Salary\n");
                 reportWriter.write("---------------------------------------------------------------------------------\n");
