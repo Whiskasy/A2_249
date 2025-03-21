@@ -9,5 +9,6 @@ public abstract class Deductions {
     public Deductions(Employee employee) {
         this.grossSalary = employee.getGrossSalary();
     }
+    //Abstract calculate tax method all subclasses will have to implement
     abstract public double calculateTax();
 }

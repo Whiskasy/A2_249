@@ -19,12 +19,12 @@ public class Driver {
 
         public static void main(String[] args) {
             System.out.println("Welcome to the payroll file processor program by Gabriel Lippé.");
-            //Use functions to read and write
+            //Use methods to read and write the files
             readPayrollFile("src/Driver/payroll.txt");
             writeReport("src/Driver/payrollReport.txt");
         }
 
-        //Read payroll.txt method
+        //Read payroll.txt method using a buffered reader and FileReader, Use a Buffered writer and FileWriter to write the error file
         private static void readPayrollFile(String fileName) {
             System.out.println("> Opening file payroll... ");
             System.out.println("> Reading file payroll...");
@@ -50,15 +50,16 @@ public class Driver {
                         double hourlyWage = Double.parseDouble(parts[4]);
                         double grossSalary = hourlyWage * hoursWorked * 52;
 
+                        //Throw custom MinimumWageException if hourlyWage variable is under 15.75
                         if (hourlyWage < 15.75) {
                             throw new MinimumWageException("Below minimum wage: " +line);
 
                         }
 
-                        // Create a new employee object
+                        // Create a new employee object and add it to the employees array, since this is after the if statements only the correct employees are added
                         Employee emp = new Employee(employeeNumber, firstName, lastName, hourlyWage, hoursWorked, grossSalary);
                         employees[employeeCount++] = emp;
-
+                    //Catches the thrown MinimumWageException and writes custom message to payrollError.txt
                     } catch (MinimumWageException e) {
                         System.out.println(line);
                         errorWriter.write(e.getMessage());
@@ -74,6 +75,7 @@ public class Driver {
                     }
                     lineCount++;
                 }
+                //Catches general IO exceptions
             }catch (IOException e){
                 System.out.println("IO exception reading payroll file");
             }
@@ -85,6 +87,7 @@ public class Driver {
 
         //WriteReport method
         private static void writeReport(String fileName) {
+            //Initialise BufferedWriter
             BufferedWriter reportWriter = null;
             try {  reportWriter = new BufferedWriter(new FileWriter(fileName));
                 reportWriter.write("                        iDroid Solutions\n"
@@ -92,11 +95,14 @@ public class Driver {
                 reportWriter.write("Employee Number   First Name   Last Name   Gross Salary   Deductions   Net Salary\n");
                 reportWriter.write("---------------------------------------------------------------------------------\n");
 
+                //Invalid employees never get added since it
                 for (int i=0; i<employeeCount; i++){
                 Employee emp = employees[i];
+                //d is for digit, s for string, f is for float, the.2 is for 2 decimal places, the numbers on the left are the number of characters wide
                 reportWriter.write(String.format("%-15d %-15s %-15s %-12.2f %-10.2f %-10.2f\n", emp.getEmployeeNumber(), emp.getFirstName(), emp.getLastName(),
                         emp.getGrossSalary(), emp.calculateDeductions(), emp.calculateNetSalary(), "\n"));
                 }
+                //Close writer after loop
                 reportWriter.close();
             } catch(IOException e) {
                 System.out.println("An IO exception occurred when writing the file");

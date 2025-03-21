@@ -4,18 +4,17 @@ import Exceptions.MinimumWageException;
 import Deductions.*
         ;
 public class Employee {
-
+    //Employee class variables
     private long employeeNumber;
     private String firstName;
     private String lastName;
     private double hoursWorked;
     private double hourlyWage;
     private double grossSalary;
-//    private Employee[] employee;
 
     public Employee() {
     }
-
+    // Parameterized Employee constructor
     public Employee(long employeeNumber, String firstName, String lastName, double hourlyWage, double hoursWorked, double grossSalary) throws MinimumWageException {
 
         this.employeeNumber = employeeNumber;
@@ -26,6 +25,7 @@ public class Employee {
         this.grossSalary = calculateGrossSalary();
     }
 
+    // Getters and setters for variables of Employee
     public String getFirstName() {
         return firstName;
     }
@@ -66,20 +66,21 @@ public class Employee {
         this.employeeNumber = employeeNumber;
     }
 
+    // CalculateGrossSalary method with a getter
     public double calculateGrossSalary() {
         return (hoursWorked * hourlyWage * 52);
     }
     public double getGrossSalary(){
        return grossSalary;
     }
-
+    // calculateDeductions method that makes a new instance of the different deductions classes and use their calculateTax() method
     public double calculateDeductions() {
         new EmploymentInsurance(this);
         new FederalTax(this);
         new ProvincialTax(this);
         new QPIP(this);
         new QPP(this);
-
+        // Initialize totalDeductions variable and add and set equal to sum of the deductions
         double totalDeductions=0;
         totalDeductions += new EmploymentInsurance(this).calculateTax() +
                         new FederalTax(this).calculateTax()+
@@ -90,6 +91,7 @@ public class Employee {
 
 
         }
+        // calculateNetSalary returns the grossSalary after deductions
     public double calculateNetSalary(){
         return grossSalary-calculateDeductions();
     }
