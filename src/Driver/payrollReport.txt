@@ -9,3 +9,16 @@ Employee Number   First Name   Last Name   Gross Salary   Deductions   Net Salar
 46344           CAROL           WHITE           54600.00     25808.00   28792.00  
 56347           HENRY           CLARK           45630.00     19463.63   26166.37  
 43070           IRENE           LEWIS           49036.00     20836.05   28199.95  
+89432           JAMES           YESSER          37310.00     16111.17   21198.83  
+11235           MICHAEL         SMITH           41600.00     17839.78   23760.22  
+44556           EMILY           DAVIS           33696.00     14654.95   19041.05  
+77889           DAVID           WILSON          51480.00     21820.83   29659.17  
+22334           JAMES           MOORE           38532.00     16603.56   21928.44  
+10112           PATRICIA        THOMAS          49192.00     20898.90   28293.10  
+13141           JOHN            JACKSON         31850.00     13911.12   17938.88  
+16171           MARY            WHITE           53820.00     25454.71   28365.29  
+19191           CHARLES         HARRIS          41600.00     17839.78   23760.22  
+20202           BARBARA         MARTIN          38532.00     16603.56   21928.44  
+26262           SUSAN           GARCIA          33696.00     14654.95   19041.05  
+29292           JOSEPH          MARTINEZ        51480.00     21820.83   29659.17  
+36363           NANCY           RODRIGUEZ       45838.00     19547.44   26290.56  

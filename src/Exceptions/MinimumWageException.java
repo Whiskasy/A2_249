@@ -1,10 +1,10 @@
 package Exceptions;
 
-public class MinimumWageException extends Throwable {
+public class MinimumWageException extends Exception {
 
 
-    public MinimumWageException() throws Exception {
-
+    public MinimumWageException(String errorMessage) {
+    super(errorMessage);
     }
 
 }

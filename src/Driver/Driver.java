@@ -1,12 +1,11 @@
 package Driver;
 import java.io.*;
-import java.util.Scanner;
 import Exceptions.MinimumWageException;
 import Employee.Employee;
 
 //-----------------------------------------------------------
 // Assignment 2
-// Written by: Gabriel Lippé (40316342) and Noah Beauchemin (40313066)
+// Written by: Gabriel Lippé (40316342)
 // General explanation: This program reads a payroll file and processes it
 // to calculate the net salary, tax deductions and the yearly gross salary.
 // It then generates a report file with an employee's information in a
@@ -19,13 +18,13 @@ public class Driver {
 
 
         public static void main(String[] args) {
-            System.out.println("Welcome to the payroll file processor program by Gabriel Lippé and Noah Beauchemin.");
-
+            System.out.println("Welcome to the payroll file processor program by Gabriel Lippé.");
+            //Use functions to read and write
             readPayrollFile("src/Driver/payroll.txt");
             writeReport("src/Driver/payrollReport.txt");
         }
 
-        //Read payroll method
+        //Read payroll.txt method
         private static void readPayrollFile(String fileName) {
             System.out.println("> Opening file payroll... ");
             System.out.println("> Reading file payroll...");
@@ -52,7 +51,8 @@ public class Driver {
                         double grossSalary = hourlyWage * hoursWorked * 52;
 
                         if (hourlyWage < 15.75) {
-                            throw new MinimumWageException();
+                            throw new MinimumWageException("Below minimum wage: " +line);
+
                         }
 
                         // Create a new employee object
@@ -61,7 +61,7 @@ public class Driver {
 
                     } catch (MinimumWageException e) {
                         System.out.println(line);
-                        errorWriter.write("Error: " + line);
+                        errorWriter.write(e.getMessage());
                         errorWriter.newLine();
                         errorLineCount++;
                     }
